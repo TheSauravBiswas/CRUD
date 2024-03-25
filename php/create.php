@@ -9,10 +9,10 @@ if (isset($_POST['create'])) {
 	$batch = $_POST['batch'];
 	$image = $_FILES['image'];
 
-	$user_data = 'name='.$name. 'email='.$email. 'program='.$program. 'batch='.$batch. 'image='.$image;
+	//$user_data = 'name'.$name. 'email='.$email. 'program='.$program. 'batch='.$batch. 'image='.$image;
 
 	if (empty($name)) {
-		header("Location: ../insert.php?error=Name is required&$user_data");
+		header("Location: ../insert.php?error=Name is required&$name");
 	}else if (empty($email)) {
 		header("Location: ../insert.php?error=Email is required&$user_data");
 	}
@@ -38,7 +38,7 @@ if (isset($_POST['create'])) {
 
 	 
 	 	$sql = "INSERT INTO users(name, email, program, batch, image) 
-               VALUES('$name', '$email', '$progarm', '$batch', '$image_des')";
+               VALUES('$name', '$email', '$program', '$batch', '$image_des')";
         $result = mysqli_query($conn, $sql);
 		if ($result) {
 			header("Location: ../read.php?success=successfully created");

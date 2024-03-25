@@ -53,7 +53,7 @@ if (isset($_GET['id'])) {
 
        $sql = "UPDATE users
                SET name='$name', email='$email', program='$program', batch='$batch', image='$image_des'
-               WHERE id=$id ";
+               WHERE id='$id' ";
        $result = mysqli_query($conn, $sql);
        if ($result) {
        	  header("Location: ../read.php?success=successfully updated");
